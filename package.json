@@ -1,0 +1,41 @@
+{
+    "name": "xmake-linter",
+    "displayName": "Xmake Linter",
+    "description": "使用 xmake check -v 为 xmake 项目提供语法诊断（Lint）功能。",
+    "version": "0.0.1",
+    "publisher": "xiaozhu",
+    "author": "xiaozhu",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Linters",
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "xmakeLinter.runLint",
+                "title": "Xmake: 运行 Lint"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode-prepublish": "npm run package",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "package": "npm run compile && vsce package",
+        "prepare": "npm run compile"
+    },
+    "devDependencies": {
+        "@types/node": "^20.8.0",
+        "typescript": "^5.2.2",
+        "eslint": "^8.50.0",
+        "@types/vscode": "^1.85.0"
+    },
+    "dependencies": {}
+}
